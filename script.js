@@ -30,3 +30,54 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         document.getElementById("message").textContent = "Invalid username or password!";
     }
 });
+
+
+
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+
+const Home = () => {
+    const [products, setProducts] = useState([])
+
+    const fetchProducts = async () => {
+        try {
+            let { data } = await axios.get('https://dummyjson.com/products')
+            setProducts(data.products)
+        } catch (error) {
+            console.log(error);
+
+        }
+    }
+    console.log(products);
+
+    useEffect(() => {
+        fetchProducts()
+    }, [])
+
+    return (
+        <div>
+            <br />
+
+            {
+                products.map((p) => {
+                    return <div key={p.id}>
+                        <p>Title : {p.title}</p>
+                        <p>Description : {p.description}</p>
+                        <p>Price : ${p.price}</p>
+                        <img src={p.thumbnail} alt="" />
+
+                        {/* {
+                            p.images.map((url)=>{
+                                return <img src={url} alt="" />
+                            })
+                        } */}
+
+                        <br />
+                    </div>
+                }
+                )}
+        </div>
+    )
+}
+
+export default Home
