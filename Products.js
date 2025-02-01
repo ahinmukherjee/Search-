@@ -174,3 +174,44 @@ const ProductList = ({ products }) => {
 }
 
 
+
+
+
+  /* Navbar container */
+.navber {
+    background-color: #333;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Menu container */
+.menuContainer {
+    display: flex;
+    gap: 20px;
+}
+
+/* Links styling */
+.links {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+/* Hover effect */
+.links:hover {
+    background-color: #555;
+}
+
+/* Active link styling */
+.menuActive {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
