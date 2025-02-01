@@ -94,4 +94,83 @@ strong {
 
 
 
+const ProductList = ({ products }) => {
+  return (
+    <div className="product-container">
+      {products.map((p) => (
+        <div className="product-card" key={p.id}>
+          <div className="box">
+            <p className="title">Title: {p.title}</p>
+            <img className="image" src={p.thumbnail} alt={p.title} />
+            <p className="desc product">Description: {p.description}</p>
+            <p className="price product">Price: ${p.price}</p>
+            <p className="category product">Category: {p.category}</p>
+
+            <Link to={`/products/${p.id}`} className="link">
+              View more...
+            </Link>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+
+
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.product-card {
+  width: 280px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.product {
+  font-size: 1rem;
+  color: #555;
+}
+
+.link {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.link:hover {
+  color: #0056b3;
+}
+
 
