@@ -215,3 +215,29 @@ const ProductList = ({ products }) => {
     border-radius: 5px;
 }
 
+
+
+WITH emp_data AS (  
+    SELECT 1, 'John Doe', 60000, '2023-01-15', 1, 1 FROM dual UNION ALL  
+    SELECT 2, 'Emma Watson', 75000, '2022-05-10', 2, 2 FROM dual UNION ALL  
+    SELECT 3, 'Liam Johnson', 50000, '2021-08-20', 3, 3 FROM dual UNION ALL  
+    SELECT 4, 'Sophia Roberts', 80000, '2020-07-12', 4, 4 FROM dual UNION ALL  
+    SELECT 5, 'Mason Brown', 55000, '2019-09-25', 5, 5 FROM dual UNION ALL  
+    SELECT 6, 'Olivia Wilson', 70000, '2018-11-05', 6, 6 FROM dual UNION ALL  
+    SELECT 7, 'Noah Davis', 65000, '2017-04-30', 7, 7 FROM dual UNION ALL  
+    SELECT 8, 'Ava Martinez', 72000, '2016-03-18', 8, 8 FROM dual UNION ALL  
+    SELECT 9, 'Elijah Taylor', 68000, '2015-12-22', 9, 9 FROM dual UNION ALL  
+    SELECT 10, 'Isabella Thomas', 62000, '2014-06-10', 10, 10 FROM dual UNION ALL  
+    SELECT 11, 'James Lee', 75000, '2013-09-15', 11, 11 FROM dual UNION ALL  
+    SELECT 12, 'Charlotte White', 54000, '2012-02-14', 12, 12 FROM dual UNION ALL  
+    SELECT 13, 'Lucas Harris', 73000, '2011-07-19', 13, 13 FROM dual UNION ALL  
+    SELECT 14, 'Mia Walker', 60000, '2010-11-03', 14, 14 FROM dual UNION ALL  
+    SELECT 15, 'William Hall', 77000, '2009-08-08', 15, 15 FROM dual UNION ALL  
+    SELECT 16, 'Evelyn Allen', 58000, '2022-06-21', 1, 2 FROM dual UNION ALL  
+    SELECT 17, 'Alexander King', 71000, '2021-04-12', 2, 3 FROM dual UNION ALL  
+    SELECT 18, 'Harper Scott', 53000, '2020-10-05', 3, 4 FROM dual UNION ALL  
+    SELECT 19, 'Henry Green', 69000, '2019-12-15', 4, 5 FROM dual UNION ALL  
+    SELECT 20, 'Amelia Adams', 64000, '2018-07-30', 5, 6 FROM dual  
+)  
+INSERT INTO employee (EmployeeID, EmployeeName, Salary, JoiningDate, DepartmentID, ManagerID)  
+SELECT * FROM emp_data;
