@@ -295,3 +295,142 @@ p strong {
         font-size: 0.85rem;
     }
 }
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Match Game</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .game-container {
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .card {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .card.matched {
+            background-color: #4CAF50;
+            color: white;
+            cursor: default;
+        }
+
+        .card.hidden {
+            background-color: #ccc;
+            color: transparent;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Number Match Game</h1>
+    <div class="game-container" id="gameBoard"></div>
+    <button onclick="restartGame()">Restart Game</button>
+
+    <script>
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+        let gameNumbers = [...numbers, ...numbers]; // Duplicate numbers for matching
+        let firstPick = null;
+        let secondPick = null;
+        let lockBoard = false;
+
+        function shuffle(array) {
+            return array.sort(() => Math.random() - 0.5);
+        }
+
+        function createBoard() {
+            gameNumbers = shuffle(gameNumbers);
+            const board = document.getElementById("gameBoard");
+            board.innerHTML = ""; // Clear board
+
+            gameNumbers.forEach((num, index) => {
+                const card = document.createElement("div");
+                card.classList.add("card", "hidden");
+                card.dataset.number = num;
+                card.dataset.index = index;
+                card.addEventListener("click", flipCard);
+                board.appendChild(card);
+            });
+        }
+
+        function flipCard() {
+            if (lockBoard || this.classList.contains("matched")) return;
+
+            this.textContent = this.dataset.number;
+            this.classList.remove("hidden");
+
+            if (!firstPick) {
+                firstPick = this;
+            } else {
+                secondPick = this;
+                lockBoard = true;
+
+                if (firstPick.dataset.number === secondPick.dataset.number) {
+                    firstPick.classList.add("matched");
+                    secondPick.classList.add("matched");
+                    resetBoard();
+                } else {
+                    setTimeout(() => {
+                        firstPick.textContent = "";
+                        secondPick.textContent = "";
+                        firstPick.classList.add("hidden");
+                        secondPick.classList.add("hidden");
+                        resetBoard();
+                    }, 1000);
+                }
+            }
+        }
+
+        function resetBoard() {
+            firstPick = null;
+            secondPick = null;
+            lockBoard = false;
+        }
+
+        function restartGame() {
+            firstPick = null;
+            secondPick = null;
+            lockBoard = false;
+            createBoard();
+        }
+
+        createBoard(); // Initialize game
+    </script>
+
+</body>
+</html>
