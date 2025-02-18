@@ -94,3 +94,102 @@
   background: #e64a19;
 }
                                                                 
+<div className="container">
+      {products.map((p) => (
+        <div className="product-card" key={p.id}>
+          <img className="product-image" src={p.thumbnail} alt={p.title} />
+          <div className="product-info">
+            <h2 className="product-title">{p.title}</h2>
+            <p className="product-desc">{p.description}</p>
+            <p className="product-price">Price: <span>${p.price}</span></p>
+            <p className="product-category">Category: {p.category}</p>
+            <button className="buy-button">Buy Now</button>
+          </div>
+        </div>
+      ))}
+</div>
+
+/* Main container */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Product Card */
+.product-card {
+  width: 300px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Product Image */
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Product Info */
+.product-info {
+  padding: 15px;
+}
+
+.product-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-desc {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+.product-price span {
+  color: #27ae60;
+}
+
+.product-category {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+/* Buy Button */
+.buy-button {
+  background: #ff5722;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.buy-button:hover {
+  background: #e64a19;
+}
+                                                                
+
+
+                                                                
