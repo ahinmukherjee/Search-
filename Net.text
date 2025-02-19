@@ -1,0 +1,105 @@
+Version field (short notes)
+The IPv4 title field is a 4-bit field indicating the version used for the Internet protocol. For IPv4, this field is always installed at 4 (binary: 0100). Key points:
+Size: 4 bits
+Objective: identifies the IP version (IPV4)
+Meaning: Always 4 for IPV4 packages
+Location: The first field of the IPV4 title
+This field guarantees that the reception system
+Correctly interprets the package in accordance with the IPV4 protocol.
+
+Header Length (IHL) Notes
+The Internet Header Field (IHL) of an IPv4 header is a 4-bit field that specifies the length of the IPv4 header in 32-bit words.
+
+Key Points:
+Size: 4 bits
+Purpose: Defines the length of the IPv4 header
+Value range: 5-15 (each unit = 4 bytes)
+Minimum header size: 20 bytes (5 x 4 bytes)
+Maximum header size: 60 bytes (15 x 4 bytes)
+Location: Second field in IPv4 header.
+
+
+you said:
+Version notes for IPv4 title format
+ChatGpt said:
+IPv4 Title Format - Version Field (Short Notes)
+The IPv4 title field is a 4-bit field indicating the version used for the Internet protocol. For IPv4, this field is always installed at 4 (binary: 0100). Key Points:
+Size: 4 bits
+Purpose: Identify the IP version (IPv4)
+Meaning: Always 4 for IPv4 packages
+Location: First Field in IPv4 Title
+This field ensures that the receiving device correctly interprets the package according to the IPv4 protocol.
+
+
+
+IPv4 title format - Total length (short notes)
+The Total IPv4 Title Length field is a 16-bit field, and is shown as the actual size of the IPv4 package that contains both the title and data.
+
+Key Points:
+Size: 16 bits
+Purpose: Determine the total size of IPv4 packages
+Value range: 20 bytes (min) Maximum 65,535 bytes (max)
+Included: IPv4 + Height Load Title (Data)
+Location: 3rd field in title IPv4
+This field ensures that the receiving system knows how many data it will be processed and where the next package will start.
+
+
+The TOS type field in an IPv4 title is an 8-bit field used to indicate the priority and quality of service (QOS) for which the package is transferred.
+
+Key Points:
+Size: 8 bits
+Purpose: Determine package priority and settings in processing
+underground:
+Priority (3 bits): Determine the level of priority (0-7)
+Delay (1 bit): low (0) or high (1)
+Pass capacity (1 bit): Normal (0) or High (1)
+Reliability (1 bit): Normal (0) or High (1)
+Reserved (2 bits): Unused (set to 0)
+Latest Use: Replaced with Differentiated Services (DSCP) for the Best Classification of Traffic
+This field helps you optimize network performance based on application requirements.
+
+
+
+
+Flags (o, df, mf) short note
+The flag field in the IPV4 title is a 3-bit field used to control packet fragmentation.
+
+Key points:
+Size: 3 bit
+Purpose: Fragmentation management and re -assembly
+Bits:
+O (reserved bit): always installed on 0 (unused). df(don\'t fragment-1 bit):
+0 → Packets can be fragmented.
+1→Do not fragment the packet. MF (more fragments - 1 bit):
+0 → The last fragment or not fragmentation.
+1 → More fragments. These flags help you control large individual collected packages in your network.
+
+
+
+Fragment Offset (Short Notes)
+The fragment shift field in the IPv4 header is a 13-bit field indicating the location of the fragment in the original package.
+
+Key Points:
+Size: 13 bits
+Purpose: Helps to reject fragmented packets in the correct order
+Value range: 0 to 8191 (measured in 8-byte blocks)
+When in use: Package is fragmented due to size limitations
+Location: After the flag field in the IPv4 header
+This field ensures that fragmented packets are properly reached at the destination.
+
+
+
+
+Protocol (short notes)
+The protocol field in the IPv4 header is an 8-bit field, indicating the type of transport layer protocol used in the package.
+
+Key Points:
+Size: 8 bits
+Purpose: Identify the next level of protocol (for example, TCP, UDP, etc.)
+General values ​​for the protocol:
+1→ICMP (Message Protocol on the Internet)
+6→TCP (Program Management Protocol)
+17→UDP (User Datagram Protocol)
+89→OSPF (open the quickest method first)
+Location: 9th field in IPv4 title
+This field ensures that the receiving system processes data with the correct protocols in the transport layer.
