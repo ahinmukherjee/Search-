@@ -103,3 +103,19 @@ General values ​​for the protocol:
 89→OSPF (open the quickest method first)
 Location: 9th field in IPv4 title
 This field ensures that the receiving system processes data with the correct protocols in the transport layer.
+
+
+
+
+Introduction to IPv4 Header Format
+The IPv4 (Internet Protocol version 4) header is a structured data format 
+that carries essential information required for routing and delivering packets across 
+networks. It is a fundamental component of the TCP/IP model and ensures proper communication between devices.
+
+
+
+Key Features of IPv4 Header
+Fixed minimum size: 20 bytes (can extend up to 60 bytes with options).
+Carries essential control information, such as source and destination IP addresses, fragmentation details, and TTL (Time to Live).
+Facilitates packet routing across networks by allowing efficient packet processing.
+Ensures error checking through the header checksum field.
