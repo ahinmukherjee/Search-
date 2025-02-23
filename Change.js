@@ -37,3 +37,39 @@
     </script>
 </body>
 </html>
+
+
+import React from 'react';
+import './App.css';
+
+const App = () => {
+    const images = [
+        'https://source.unsplash.com/random/1920x1080?nature',
+        'https://source.unsplash.com/random/1920x1080?city',
+        'https://source.unsplash.com/random/1920x1080?abstract',
+        'https://source.unsplash.com/random/1920x1080?technology',
+        'https://source.unsplash.com/random/1920x1080?mountains'
+    ];
+    
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+
+    return (
+        <div className="app" style={{ 
+            height: '100vh', 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center', 
+            backgroundSize: 'cover', 
+            backgroundPosition: 'center', 
+            backgroundImage: `url(${randomImage})`,
+            transition: 'background 0.5s' 
+        }}>
+            <h1 style={{ color: 'white', textShadow: '2px 2px 5px black' }}>
+                Welcome to My Random Background Page
+            </h1>
+        </div>
+    );
+};
+
+export default App;
+
