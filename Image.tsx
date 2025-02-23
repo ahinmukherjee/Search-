@@ -51,3 +51,64 @@ const App = () => {
 };
 
 export default App;
+
+
+import React, { useState } from 'react';
+import './App.css';
+
+const App = () => {
+    const images = [
+        'https://source.unsplash.com/random/1920x1080?nature',
+        'https://source.unsplash.com/random/1920x1080?city',
+        'https://source.unsplash.com/random/1920x1080?abstract',
+        'https://source.unsplash.com/random/1920x1080?technology',
+        'https://source.unsplash.com/random/1920x1080?mountains'
+    ];
+
+    const [randomImage, setRandomImage] = useState(images[Math.floor(Math.random() * images.length)]);
+
+    const changeBackground = () => {
+        setRandomImage(images[Math.floor(Math.random() * images.length)]);
+    };
+
+    return (
+        <div className="app" style={{ backgroundImage: `url(${randomImage})` }}>
+            <h1>Welcome to My Random Background Page</h1>
+            <button onClick={changeBackground}>Change Background</button>
+        </div>
+    );
+};
+
+export default App;
+
+
+
+.app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    transition: background 0.5s;
+}
+
+h1 {
+    color: white;
+    text-shadow: 2px 2px 5px black;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+
+
