@@ -1,168 +1,75 @@
-document.getElementById("loginForm").addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevent form submission
+import React, { useState } from "react";
 
-    // Get input values
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+function ToggleDiv() {
+  const [isVisible, setIsVisible] = useState(false);
 
-    // Simple validation
-    if (username === "admin" && password === "password") {
-        alert("Login Successful!");
-        window.location.href = "dashboard.html"; // Redirect to another page (optional)
-    } else {
-        document.getElementById("message").textContent = "Invalid username or password!";
-    }
-});
-
-
-document.getElementById("loginForm").addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevent form submission
-
-    // Get input values
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-
-    // Simple validation
-    if (username === "admin" && password === "password") {
-        alert("Login Successful!");
-        window.location.href = "dashboard.html"; // Redirect to another page (optional)
-    } else {
-        document.getElementById("message").textContent = "Invalid username or password!";
-    }
-});
-
-
-
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-
-const Home = () => {
-    const [products, setProducts] = useState([])
-
-    const fetchProducts = async () => {
-        try {
-            let { data } = await axios.get('https://dummyjson.com/products')
-            setProducts(data.products)
-        } catch (error) {
-            console.log(error);
-
-        }
-    }
-    console.log(products);
-
-    useEffect(() => {
-        fetchProducts()
-    }, [])
-
-    return (
-        <div>
-            <br />
-
-            {
-                products.map((p) => {
-                    return <div key={p.id}>
-                        <p>Title : {p.title}</p>
-                        <p>Description : {p.description}</p>
-                        <p>Price : ${p.price}</p>
-                        <img src={p.thumbnail} alt="" />
-
-                        {/* {
-                            p.images.map((url)=>{
-                                return <img src={url} alt="" />
-                            })
-                        } */}
-
-                        <br />
-                    </div>
-                }
-                )}
+  return (
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <button onClick={() => setIsVisible(!isVisible)}>
+        {isVisible ? "Hide" : "Show"} Div
+      </button>
+      
+      {isVisible && (
+        <div
+          style={{
+            width: "300px",
+            height: "200px",
+            backgroundColor: "lightgray",
+            textAlign: "center",
+            lineHeight: "200px",
+            fontSize: "20px",
+            marginTop: "20px",
+          }}
+        >
+          Hello, I am a Div!
         </div>
-    )
+      )}
+    </div>
+  );
 }
 
-export default Home
-
-
-document.getElementById("loginForm").addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevent form submission
-
-    // Get input values
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-
-    // Simple validation
-    if (username === "admin" && password === "password") {
-        alert("Login Successful!");
-        window.location.href = "dashboard.html"; // Redirect to another page (optional)
-    } else {
-        document.getElementById("message").textContent = "Invalid username or password!";
-    }
-});
-
-
-document.getElementById("loginForm").addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevent form submission
-
-    // Get input values
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-
-    // Simple validation
-    if (username === "admin" && password === "password") {
-        alert("Login Successful!");
-        window.location.href = "dashboard.html"; // Redirect to another page (optional)
-    } else {
-        document.getElementById("message").textContent = "Invalid username or password!";
-    }
-});
+export default ToggleDiv;
 
 
 
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import React, { useState } from "react";
 
-const Home = () => {
-    const [products, setProducts] = useState([])
+function DynamicDiv() {
+  const [contentIndex, setContentIndex] = useState(0);
 
-    const fetchProducts = async () => {
-        try {
-            let { data } = await axios.get('https://dummyjson.com/products')
-            setProducts(data.products)
-        } catch (error) {
-            console.log(error);
+  // Different content options
+  const contentList = [
+    "Welcome to my dynamic div!",
+    "Here is the second content.",
+    "You have reached the third content.",
+    "Final content, what's next?"
+  ];
 
-        }
-    }
-    console.log(products);
+  // Function to change content dynamically
+  const changeContent = () => {
+    setContentIndex((prevIndex) => (prevIndex + 1) % contentList.length);
+  };
 
-    useEffect(() => {
-        fetchProducts()
-    }, [])
+  return (
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <button onClick={changeContent}>Change Content</button>
 
-    return (
-        <div>
-            <br />
-
-            {
-                products.map((p) => {
-                    return <div key={p.id}>
-                        <p>Title : {p.title}</p>
-                        <p>Description : {p.description}</p>
-                        <p>Price : ${p.price}</p>
-                        <img src={p.thumbnail} alt="" />
-
-                        {/* {
-                            p.images.map((url)=>{
-                                return <img src={url} alt="" />
-                            })
-                        } */}
-
-                        <br />
-                    </div>
-                }
-                )}
-        </div>
-    )
+      <div
+        style={{
+          width: "300px",
+          height: "200px",
+          backgroundColor: "lightgray",
+          textAlign: "center",
+          lineHeight: "200px",
+          fontSize: "20px",
+          marginTop: "20px",
+          transition: "all 0.5s ease"
+        }}
+      >
+        {contentList[contentIndex]}
+      </div>
+    </div>
+  );
 }
 
-export default Home
+export default DynamicDiv;
