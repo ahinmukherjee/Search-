@@ -1,306 +1,448 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+import React from "react";
+import "./Footer.css";
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+
+const Footer = () => {
+  return (
+    <footer className="footer">
+      <div className="footer-container">
+        {/* About Section */}
+        <div className="footer-section about">
+          <h3>About Us</h3>
+          <p>We provide the best products and services to our customers with top-notch support.</p>
+        </div>
+
+        {/* Quick Links Section */}
+        <div className="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+
+        {/* Contact Section */}
+        <div className="footer-section contact">
+          <h3>Contact Us</h3>
+          <p><FaPhoneAlt /> +1 234 567 890</p>
+          <p><FaEnvelope /> support@example.com</p>
+          <p><FaMapMarkerAlt /> 123 Main Street, City, Country</p>
+        </div>
+
+        {/* Social Media Icons */}
+        <div className="footer-section social">
+          <h3>Follow Us</h3>
+          <div className="social-icons">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+              <FaFacebookF />
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+              <FaTwitter />
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              <FaInstagram />
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <FaLinkedinIn />
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+              <FaYoutube />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Copyright */}
+      <div className="footer-bottom">
+        <p>© {new Date().getFullYear()} Your Company. All Rights Reserved.</p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
+
+
+.footer {
+  background: #222;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
 }
 
-body {
-    background-color: #f0f2f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: auto;
 }
 
-.header {
-    width: 100%;
-    display: flex;
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin: 15px;
+  text-align: left;
+}
+
+.footer-section h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #ff9900;
+}
+
+.footer-section p, .footer-section ul {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #ff9900;
+}
+
+.contact p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icons a:hover {
+  color: #ff9900;
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #444;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
     flex-direction: column;
-    align-items: center;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 1000px;
-    width: 90%;
-}
-
-.leftpart {
-    flex: 1;
-    text-align: left;
-    margin-right: 20px;
-}
-
-h1 {
-    color: #1877f2;
-    font-size: 50px;
-}
-
-h3 {
-    color: black;
-    font-size: 20px;
-}
-
-.rightpart {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-/* Login Box */
-.login-box {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
     text-align: center;
+  }
+  
+  .contact p {
+    justify-content: center;
+  }
 }
 
-/* Input Fields */
-.login-input {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-    transition: 0.3s;
+
+
+import React, { useState } from "react";
+import "./Footer.css";
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaComments } from "react-icons/fa";
+
+const Footer = () => {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [chatMessage, setChatMessage] = useState("");
+  const [messages, setMessages] = useState([]);
+
+  // Toggle Chat Window
+  const toggleChat = () => {
+    setIsChatOpen(!isChatOpen);
+  };
+
+  // Handle Chat Input
+  const handleChatSubmit = (e) => {
+    e.preventDefault();
+    if (chatMessage.trim()) {
+      setMessages([...messages, { text: chatMessage, sender: "user" }]);
+      setChatMessage("");
+      setTimeout(() => {
+        setMessages((prevMessages) => [...prevMessages, { text: "Hello! How can I help you?", sender: "bot" }]);
+      }, 1000);
+    }
+  };
+
+  return (
+    <footer className="footer">
+      <div className="footer-container">
+        {/* About Section */}
+        <div className="footer-section about">
+          <h3>About Us</h3>
+          <p>We provide the best products and services to our customers with top-notch support.</p>
+        </div>
+
+        {/* Quick Links Section */}
+        <div className="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+
+        {/* Contact Section */}
+        <div className="footer-section contact">
+          <h3>Contact Us</h3>
+          <p><FaPhoneAlt /> +1 234 567 890</p>
+          <p><FaEnvelope /> support@example.com</p>
+          <p><FaMapMarkerAlt /> 123 Main Street, City, Country</p>
+        </div>
+
+        {/* Social Media Icons */}
+        <div className="footer-section social">
+          <h3>Follow Us</h3>
+          <div className="social-icons">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+              <FaFacebookF />
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+              <FaTwitter />
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              <FaInstagram />
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <FaLinkedinIn />
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+              <FaYoutube />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Chat Button */}
+      <button className="chat-button" onClick={toggleChat}>
+        <FaComments /> Chat with Us
+      </button>
+
+      {/* Chat Box */}
+      {isChatOpen && (
+        <div className="chat-box">
+          <div className="chat-header">
+            <span>Live Chat</span>
+            <button className="close-chat" onClick={toggleChat}>✖</button>
+          </div>
+          <div className="chat-messages">
+            {messages.map((msg, index) => (
+              <div key={index} className={`chat-message ${msg.sender}`}>
+                {msg.text}
+              </div>
+            ))}
+          </div>
+          <form className="chat-input" onSubmit={handleChatSubmit}>
+            <input
+              type="text"
+              placeholder="Type a message..."
+              value={chatMessage}
+              onChange={(e) => setChatMessage(e.target.value)}
+            />
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      )}
+
+      {/* Copyright */}
+      <div className="footer-bottom">
+        <p>© {new Date().getFullYear()} Your Company. All Rights Reserved.</p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
+
+
+.footer {
+  background: #222;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
 }
 
-.login-input:focus {
-    border-color: #1877f2;
-    box-shadow: 0 0 5px rgba(24, 119, 242, 0.5);
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: auto;
 }
 
-/* Login Button */
-.login-btn {
-    width: 100%;
-    background-color: #1877f2;
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background 0.3s;
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin: 15px;
+  text-align: left;
 }
 
-.login-btn:hover {
-    background-color: #166fe5;
+.footer-section h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #ff9900;
 }
 
-/* Forgot Password */
-.forgot-password {
-    margin: 12px 0;
-    font-size: 14px;
-    color: #1877f2;
-    cursor: pointer;
+.footer-section p, .footer-section ul {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ddd;
 }
 
-.forgot-password:hover {
-    text-decoration: underline;
+.footer-section ul {
+  list-style: none;
+  padding: 0;
 }
 
-/* Divider */
-hr {
-    border: none;
-    height: 1px;
-    background-color: #ddd;
-    margin: 15px 0;
+.footer-section ul li {
+  margin-bottom: 8px;
 }
 
-/* Create Account Button */
-.create-account-btn {
-    width: 100%;
-    background-color: #42b72a;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
+.footer-section ul li a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-.create-account-btn:hover {
-    background-color: #36a420;
+.footer-section ul li a:hover {
+  color: #ff9900;
 }
 
-/* Background overlay when signup modal opens */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 15; /* Ensures it appears above the login box */
+.social-icons {
+  display: flex;
+  gap: 15px;
 }
 
-/* Signup Modal (Centered) */
-.signup-modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Perfectly centers the modal */
-    background: #fff;
-    width: 400px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    text-align: center;
-    z-index: 20; /* Ensures it appears above the overlay */
+.social-icons a {
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
-/* Signup Header */
-.signup-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 10px;
+.social-icons a:hover {
+  color: #ff9900;
+  transform: scale(1.1);
 }
 
-.signup-header h2 {
-    font-size: 24px;
-    color: #333;
+/* Chat Button */
+.chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff9900;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.signup-header p {
-    font-size: 14px;
-    color: #666;
+.chat-button:hover {
+  background: #e68a00;
 }
 
-.close-btn {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #888;
-    transition: color 0.3s;
+/* Chat Box */
+.chat-box {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  width: 300px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 }
 
-.close-btn:hover {
-    color: #333;
+.chat-header {
+  background: #ff9900;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
 }
 
-/* Form Styling */
-.signup-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding-top: 10px;
+.close-chat {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-/* Name Fields */
-.name-fields {
-    display: flex;
-    gap: 10px;
+.chat-messages {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 10px;
 }
 
-.input-box {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-    transition: 0.3s;
+.chat-message {
+  padding: 8px;
+  margin: 5px;
+  border-radius: 5px;
+  max-width: 80%;
 }
 
-.input-box:focus {
-    border-color: #1877f2;
-    box-shadow: 0 0 5px rgba(24, 119, 242, 0.5);
+.chat-message.user {
+  background: #ff9900;
+  color: white;
+  align-self: flex-end;
+  text-align: right;
 }
 
-/* Full-Width Input */
-.full-width {
-    width: 100%;
+.chat-message.bot {
+  background: #ddd;
+  color: black;
+  align-self: flex-start;
 }
 
-/* Birthday Section */
-.birthday-section p,
-.gender-section p {
-    text-align: left;
-    font-weight: bold;
-    margin: 10px 0 5px;
+.chat-input {
+  display: flex;
+  border-top: 1px solid #ddd;
 }
 
-.birthday-fields {
-    display: flex;
-    justify-content: space-between;
+.chat-input input {
+  flex: 1;
+  padding: 8px;
+  border: none;
 }
 
-.birthday-fields select {
-    width: 32%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
+.chat-input button {
+  background: #ff9900;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  cursor: pointer;
 }
 
-/* Gender Section */
-.gender-options {
-    display: flex;
-    justify-content: space-between;
-}
 
-.gender-options label {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 8px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 30%;
-    cursor: pointer;
-    font-size: 14px;
-}
 
-.gender-options input {
-    cursor: pointer;
-}
-
-/* Terms */
-.terms {
-    font-size: 12px;
-    color: #666;
-    margin-top: 10px;
-}
-
-.terms .blue {
-    color: #1877f2;
-    cursor: pointer;
-}
-
-.terms .blue:hover {
-    text-decoration: underline;
-}
-
-/* Signup Button */
-.signup-btn {
-    width: 100%;
-    background-color: #42b72a;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background 0.3s;
-}
-
-.signup-btn:hover {
-    background-color: #36a420;
-}
