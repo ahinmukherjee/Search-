@@ -1,114 +1,43 @@
-import React, { useState } from 'react';
-import './App.css';
+import React, { useState, useEffect } from "react";
 
-const App = () => {
-    const images = [
-        'https://source.unsplash.com/random/1920x1080?nature',
-        'https://source.unsplash.com/random/1920x1080?city',
-        'https://source.unsplash.com/random/1920x1080?abstract',
-        'https://source.unsplash.com/random/1920x1080?technology',
-        'https://source.unsplash.com/random/1920x1080?mountains'
-    ];
+const images = [
+  "https://via.placeholder.com/800x400/FF5733/fff?text=Image+1",
+  "https://via.placeholder.com/800x400/33FF57/fff?text=Image+2",
+  "https://via.placeholder.com/800x400/3357FF/fff?text=Image+3",
+];
 
-    const [randomImage, setRandomImage] = useState(images[Math.floor(Math.random() * images.length)]);
+const ImageSlider = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-    const changeBackground = () => {
-        setRandomImage(images[Math.floor(Math.random() * images.length)]);
-    };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000); // Change image every 3 seconds
 
-    return (
-        <div className="app" style={{ 
-            height: '100vh', 
-            display: 'flex', 
-            flexDirection: 'column',
-            justifyContent: 'center', 
-            alignItems: 'center', 
-            backgroundSize: 'cover', 
-            backgroundPosition: 'center', 
-            backgroundImage: `url(${randomImage})`,
-            transition: 'background 0.5s' 
-        }}>
-            <h1 style={{ color: 'white', textShadow: '2px 2px 5px black' }}>
-                Welcome to My Random Background Page
-            </h1>
-            <button 
-                onClick={changeBackground} 
-                style={{ 
-                    marginTop: '20px', 
-                    padding: '10px 20px', 
-                    fontSize: '16px', 
-                    cursor: 'pointer',
-                    background: 'rgba(0,0,0,0.6)',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '5px'
-                }}
-            >
-                Change Background
-            </button>
-        </div>
-    );
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []);
+
+  return (
+    <div style={styles.container}>
+      <img src={images[currentIndex]} alt="slider" style={styles.image} />
+    </div>
+  );
 };
 
-export default App;
-
-
-import React, { useState } from 'react';
-import './App.css';
-
-const App = () => {
-    const images = [
-        'https://source.unsplash.com/random/1920x1080?nature',
-        'https://source.unsplash.com/random/1920x1080?city',
-        'https://source.unsplash.com/random/1920x1080?abstract',
-        'https://source.unsplash.com/random/1920x1080?technology',
-        'https://source.unsplash.com/random/1920x1080?mountains'
-    ];
-
-    const [randomImage, setRandomImage] = useState(images[Math.floor(Math.random() * images.length)]);
-
-    const changeBackground = () => {
-        setRandomImage(images[Math.floor(Math.random() * images.length)]);
-    };
-
-    return (
-        <div className="app" style={{ backgroundImage: `url(${randomImage})` }}>
-            <h1>Welcome to My Random Background Page</h1>
-            <button onClick={changeBackground}>Change Background</button>
-        </div>
-    );
+const styles = {
+  container: {
+    width: "800px",
+    height: "400px",
+    overflow: "hidden",
+    position: "relative",
+    margin: "auto",
+  },
+  image: {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    transition: "opacity 1s ease-in-out",
+  },
 };
 
-export default App;
-
-
-
-.app {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    background-position: center;
-    transition: background 0.5s;
-}
-
-h1 {
-    color: white;
-    text-shadow: 2px 2px 5px black;
-}
-
-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
-
-
-
+export default ImageSlider;
