@@ -88,3 +88,37 @@ public class X {
         y.add();
     }
 }
+
+
+
+import java.util.Scanner;
+
+class Inheritance {
+    private int plus; // Encapsulation for better data security
+
+    void sum(int x, int y) {
+        plus = x + y;
+        System.out.println("Sum = " + plus);
+    }
+
+    int getPlus() {
+        return plus;
+    }
+}
+
+class Y extends Inheritance {
+    void add() {
+        try (Scanner sc = new Scanner(System.in)) { // Auto-closing scanner
+            System.out.print("Enter number: ");
+            System.out.println("Result = " + (getPlus() + sc.nextInt()));
+        }
+    }
+}
+
+public class X {
+    public static void main(String[] args) {
+        Y y = new Y();
+        y.sum(20, 30);
+        y.add();
+    }
+}
