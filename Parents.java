@@ -1,28 +1,10 @@
-import java.util.Scanner;
-
-public class FactorialCalculator {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        // Input from the user
-        System.out.print("Enter a positive integer: ");
-        int number = scanner.nextInt();
-
-        // Checking for negative numbers
-        if (number < 0) {
-            System.out.println("Factorial is not defined for negative numbers.");
-        } else {
-            long factorial = 1; // Using 'long' to handle large factorial values
-
-            // Factorial calculation logic
-            for (int i = 1; i <= number; i++) {
-                factorial *= i;
-            }
-
-            // Output result
-            System.out.println("Factorial of " + number + " is: " + factorial);
-        }
-
-        scanner.close();
-    }
-}
+l = [7, 1, 2, 3, 4, 5, 8]
+s = 0
+for i in range(len(l)):
+    for j in range(i + 1, len(l)):
+        if l[i] > l[j]:
+            s = l[i] - l[j]
+            print("Values of", l[i], "and", l[j], "is", s)
+        elif l[i] < l[j]:  # Correct 'elif' condition for alternative logic
+            s = l[j] - l[i]
+            print("Values of", l[i], "and", l[j], "is", s)
