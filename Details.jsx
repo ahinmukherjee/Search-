@@ -5,23 +5,37 @@ const WorkerDetails = () => {
   const workers = [
     {
       id: 1,
-      name: "John Doe",
-      address: "123 Street, New York",
-      contact: "+1 234 567 890",
+      name: "Sourav Das",
+      address: "Barasat, Kolkata",
+      contact: "+91 98765 43210",
       picture: "https://via.placeholder.com/50",
     },
     {
       id: 2,
-      name: "Jane Smith",
-      address: "456 Avenue, Los Angeles",
-      contact: "+1 987 654 321",
+      name: "Anirban Ghosh",
+      address: "Durgapur, West Bengal",
+      contact: "+91 98654 32109",
+      picture: "https://via.placeholder.com/50",
+    },
+    {
+      id: 3,
+      name: "Priya Saha",
+      address: "Siliguri, West Bengal",
+      contact: "+91 98562 41098",
+      picture: "https://via.placeholder.com/50",
+    },
+    {
+      id: 4,
+      name: "Arpita Chatterjee",
+      address: "Howrah, West Bengal",
+      contact: "+91 98453 20987",
       picture: "https://via.placeholder.com/50",
     },
   ];
 
   return (
     <div className="container">
-      <h2>Worker Details</h2>
+      <h2>Worker Details (West Bengal)</h2>
       <table>
         <thead>
           <tr>
@@ -60,6 +74,7 @@ export default function App() {
   width: 80%;
   margin: 20px auto;
   text-align: center;
+  font-family: Arial, sans-serif;
 }
 
 /* Table styles */
@@ -77,7 +92,7 @@ th, td {
 }
 
 th {
-  background-color: #4CAF50;
+  background-color: #008080;
   color: white;
 }
 
