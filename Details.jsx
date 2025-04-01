@@ -1,156 +1,91 @@
-import java.util.Scanner;
-
-public class BubbleSort {
-    public static void bubbleSort(int[] arr) {
-        int n = arr.length;
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                if (arr[i] > arr[j]) {
-                    int temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
-                }
-            }
-        }
-        System.out.println("Sorted Array: ");
-        for (int num : arr) {
-            System.out.print(num + " ");
-        }
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("How many numbers do you want? ");
-        int n = sc.nextInt();
-        
-        int[] arr = new int[n];
-        System.out.println("Enter numbers:");
-        for (int i = 0; i < n; i++) {
-            arr[i] = sc.nextInt();
-        }
-        
-        bubbleSort(arr);
-        sc.close();
-    }
+# Function to add two numbers
+add_numbers <- function(a, b) {
+  return(a + b)
 }
 
-#include <iostream>
-#include <vector>
-using namespace std;
+# Example usage
+num1 <- as.numeric(readline("Enter first number: "))
+num2 <- as.numeric(readline("Enter second number: "))
 
-void bubbleSort(vector<int>& arr) {
-    int n = arr.size();
-    for (int i = 0; i < n; i++) {
-        for (int j = i + 1; j < n; j++) {
-            if (arr[i] > arr[j]) {
-                swap(arr[i], arr[j]);
-            }
-        }
-    }
-    cout << "Sorted Array: ";
-    for (int num : arr) {
-        cout << num << " ";
-    }
+# Performing addition
+result <- add_numbers(num1, num2)
+
+# Displaying the result
+cat("The sum is:", result, "\n")
+
+
+
+
+# Functions for arithmetic operations
+add_numbers <- function(a, b) {
+  return(a + b)
 }
 
-int main() {
-    int n;
-    cout << "How many numbers do you want? ";
-    cin >> n;
-    
-    vector<int> arr(n);
-    cout << "Enter numbers:" << endl;
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
-    
-    bubbleSort(arr);
-    return 0;
+subtract_numbers <- function(a, b) {
+  return(a - b)
 }
 
-function bubbleSort(arr) {
-    let n = arr.length;
-    for (let i = 0; i < n; i++) {
-        for (let j = i + 1; j < n; j++) {
-            if (arr[i] > arr[j]) {
-                [arr[i], arr[j]] = [arr[j], arr[i]];  // Swap using destructuring
-            }
-        }
-    }
-    console.log("Sorted Array:", arr);
+multiply_numbers <- function(a, b) {
+  return(a * b)
 }
 
-let n = parseInt(prompt("How many numbers do you want?"));
-let arr = [];
-
-console.log("Enter numbers:");
-for (let i = 0; i < n; i++) {
-    arr.push(parseInt(prompt()));
-}
-
-bubbleSort(arr);
-
-
-#include <stdio.h>
-
-void bubbleSort(int arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        for (int j = i + 1; j < n; j++) {
-            if (arr[i] > arr[j]) {
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
-        }
-    }
-    printf("Sorted Array: ");
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-}
-
-int main() {
-    int n;
-    printf("How many numbers do you want? ");
-    scanf("%d", &n);
-    
-    int arr[n];
-    printf("Enter numbers:\n");
-    for (int i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
-    }
-    
-    bubbleSort(arr, n);
-    return 0;
-}
-
-
-
-bubble_sort <- function(arr) {
-  n <- length(arr)
-  for (i in 1:n) {
-    for (j in (i+1):n) {
-      if (arr[i] > arr[j]) {
-        temp <- arr[i]
-        arr[i] <- arr[j]
-        arr[j] <- temp
-      }
-    }
+divide_numbers <- function(a, b) {
+  if (b == 0) {
+    return("Error: Division by zero is not allowed.")
   }
-  return(arr)
+  return(a / b)
 }
 
 # Taking user input
-n <- as.integer(readline("How many numbers do you want? "))
-arr <- numeric(n)
+num1 <- as.numeric(readline("Enter first number: "))
+num2 <- as.numeric(readline("Enter second number: "))
 
-cat("Enter numbers:\n")
-for (i in 1:n) {
-  arr[i] <- as.integer(readline())
+# Performing operations
+sum_result <- add_numbers(num1, num2)
+sub_result <- subtract_numbers(num1, num2)
+mul_result <- multiply_numbers(num1, num2)
+div_result <- divide_numbers(num1, num2)
+
+# Displaying results
+cat("Addition:", sum_result, "\n")
+cat("Subtraction:", sub_result, "\n")
+cat("Multiplication:", mul_result, "\n")
+cat("Division:", div_result, "\n")
+
+
+
+# Function to calculate power
+calculate_power <- function(base, exponent) {
+  return(base ^ exponent)  # Using ^ operator for exponentiation
 }
 
-sorted_arr <- bubble_sort(arr)
-cat("Sorted Array:", sorted_arr, "\n")
+# Taking user input
+base <- as.numeric(readline("Enter the base number: "))
+exponent <- as.numeric(readline("Enter the exponent: "))
+
+# Calculating power
+result <- calculate_power(base, exponent)
+
+# Displaying result
+cat(base, "raised to the power of", exponent, "is:", result, "\n")
 
 
 
+
+# Function to calculate remainder
+calculate_remainder <- function(dividend, divisor) {
+  if (divisor == 0) {
+    return("Error: Division by zero is not allowed.")
+  }
+  return(dividend %% divisor)
+}
+
+# Taking user input
+dividend <- as.numeric(readline("Enter the dividend: "))
+divisor <- as.numeric(readline("Enter the divisor: "))
+
+# Calculating remainder
+remainder <- calculate_remainder(dividend, divisor)
+
+# Displaying result
+cat("The remainder when", dividend, "is divided by", divisor, "is:", remainder, "\n")
