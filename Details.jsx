@@ -1,91 +1,94 @@
-# Function to add two numbers
-add_numbers <- function(a, b) {
-  return(a + b)
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class TextChange {
+    public static void main(String args[]) {
+        FrameSample st = new FrameSample();
+        st.setVisible(true);
+        st.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
 }
 
-# Example usage
-num1 <- as.numeric(readline("Enter first number: "))
-num2 <- as.numeric(readline("Enter second number: "))
-
-# Performing addition
-result <- add_numbers(num1, num2)
-
-# Displaying the result
-cat("The sum is:", result, "\n")
-
-
-
-
-# Functions for arithmetic operations
-add_numbers <- function(a, b) {
-  return(a + b)
+class FrameSample extends JFrame {
+    public FrameSample() {
+        Toolkit kit = Toolkit.getDefaultToolkit();
+        Dimension scrsize = kit.getScreenSize();
+        int w = scrsize.width;
+        int h = scrsize.height;
+        setSize(w / 2, h / 2);
+        setLocation(w / 4, h / 4);
+        setTitle("Hello");
+        setResizable(false);
+        MyPanel mp = new MyPanel();
+        add(mp);
+    }
 }
 
-subtract_numbers <- function(a, b) {
-  return(a - b)
+class MyPanel extends JPanel {
+    JButton yellowButton, greenButton, blueButton, redButton, exitButton;
+    JLabel label;
+
+    public MyPanel() {
+        yellowButton = new JButton("Yellow");
+        greenButton = new JButton("Green");
+        blueButton = new JButton("Blue");
+        redButton = new JButton("Red");
+        exitButton = new JButton("Exit");
+
+        label = new JLabel("Default Text"); // Added JLabel
+        add(label);
+
+        add(yellowButton);
+        add(greenButton);
+        add(blueButton);
+        add(redButton);
+        add(exitButton);
+
+        ColorAction yellowAction = new ColorAction(Color.YELLOW);
+        ColorAction greenAction = new ColorAction(Color.GREEN);
+        ColorAction blueAction = new ColorAction(Color.BLUE);
+        ColorAction redAction = new ColorAction(Color.RED);
+
+        yellowButton.addActionListener(yellowAction);
+        greenButton.addActionListener(greenAction);
+        blueButton.addActionListener(blueAction);
+        redButton.addActionListener(redAction);
+
+        TextAction textYellowButton = new TextAction("Hello");
+        yellowButton.addActionListener(textYellowButton);
+
+        ExitAction ea = new ExitAction();
+        exitButton.addActionListener(ea);
+    }
+
+    class ColorAction implements ActionListener {
+        Color bgcolor;
+
+        public ColorAction(Color c) {
+            bgcolor = c;
+        }
+
+        public void actionPerformed(ActionEvent ae) {
+            setBackground(bgcolor);
+        }
+    }
+
+    class TextAction implements ActionListener {
+        String bgstring;
+
+        public TextAction(String s) {
+            bgstring = s;
+        }
+
+        public void actionPerformed(ActionEvent ae) {
+            label.setText(bgstring); // Corrected setText()
+        }
+    }
+
+    class ExitAction implements ActionListener {
+        public void actionPerformed(ActionEvent ae) {
+            System.exit(0);
+        }
+    }
 }
-
-multiply_numbers <- function(a, b) {
-  return(a * b)
-}
-
-divide_numbers <- function(a, b) {
-  if (b == 0) {
-    return("Error: Division by zero is not allowed.")
-  }
-  return(a / b)
-}
-
-# Taking user input
-num1 <- as.numeric(readline("Enter first number: "))
-num2 <- as.numeric(readline("Enter second number: "))
-
-# Performing operations
-sum_result <- add_numbers(num1, num2)
-sub_result <- subtract_numbers(num1, num2)
-mul_result <- multiply_numbers(num1, num2)
-div_result <- divide_numbers(num1, num2)
-
-# Displaying results
-cat("Addition:", sum_result, "\n")
-cat("Subtraction:", sub_result, "\n")
-cat("Multiplication:", mul_result, "\n")
-cat("Division:", div_result, "\n")
-
-
-
-# Function to calculate power
-calculate_power <- function(base, exponent) {
-  return(base ^ exponent)  # Using ^ operator for exponentiation
-}
-
-# Taking user input
-base <- as.numeric(readline("Enter the base number: "))
-exponent <- as.numeric(readline("Enter the exponent: "))
-
-# Calculating power
-result <- calculate_power(base, exponent)
-
-# Displaying result
-cat(base, "raised to the power of", exponent, "is:", result, "\n")
-
-
-
-
-# Function to calculate remainder
-calculate_remainder <- function(dividend, divisor) {
-  if (divisor == 0) {
-    return("Error: Division by zero is not allowed.")
-  }
-  return(dividend %% divisor)
-}
-
-# Taking user input
-dividend <- as.numeric(readline("Enter the dividend: "))
-divisor <- as.numeric(readline("Enter the divisor: "))
-
-# Calculating remainder
-remainder <- calculate_remainder(dividend, divisor)
-
-# Displaying result
-cat("The remainder when", dividend, "is divided by", divisor, "is:", remainder, "\n")
