@@ -1,205 +1,42 @@
-class Number:
-    def number_calculate(self, n):
-        if n > 0:
-            print("Number is Positive")
-        elif n < 0:
-            print("Number is Negative")
-        else:
-            print("Number is Equal")
+num <- as.integer(readline(prompt = "Enter number: "))
 
-a = int(input("Enter value: "))
-nb = Number()
-nb.number_calculate(a)
-
-
-
-#include <stdio.h>
-
-void numberCalculate(int n) {
-    if(n > 0)
-        printf("Number is Positive\n");
-    else if(n < 0)
-        printf("Number is Negative\n");
-    else
-        printf("Number is Equal\n");
-}
-
-int main() {
-    int a;
-    printf("Enter value: ");
-    scanf("%d", &a);
-    numberCalculate(a);
-    return 0;
+if (num %% 2 == 0) {
+  cat("Input number is even:", num, "\n")
+} else {
+  cat("Input number is odd:", num, "\n")
 }
 
 
-#include <iostream>
-using namespace std;
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-class Number {
-public:
-    void numberCalculate(int n) {
-        if(n > 0)
-            cout << "Number is Positive" << endl;
-        else if(n < 0)
-            cout << "Number is Negative" << endl;
-        else
-            cout << "Number is Equal" << endl;
-    }
-};
+readline.question("Enter number: ", function(input) {
+  const num = parseInt(input);
 
-int main() {
-    int a;
-    cout << "Enter value: ";
-    cin >> a;
-    Number nb;
-    nb.numberCalculate(a);
-    return 0;
-}
+  if (num % 2 === 0) {
+    console.log("Input number is even: " + num);
+  } else {
+    console.log("Input number is odd: " + num);
+  }
+
+  readline.close();
+});
 
 
 
 using System;
 
-class Number {
-    public void numberCalculate(int n) {
-        if (n > 0)
-            Console.WriteLine("Number is Positive");
-        else if (n < 0)
-            Console.WriteLine("Number is Negative");
-        else
-            Console.WriteLine("Number is Equal");
-    }
-}
-
-class Program {
+class EvenOdd {
     static void Main() {
-        Console.Write("Enter value: ");
-        int a = Convert.ToInt32(Console.ReadLine());
-        Number nb = new Number();
-        nb.numberCalculate(a);
-    }
-}
-// program.cs
+        Console.Write("Enter number: ");
+        int num = int.Parse(Console.ReadLine());
 
-
-numberCalculate <- function(n) {
-  if (n > 0) {
-    print("Number is Positive")
-  } else if (n < 0) {
-    print("Number is Negative")
-  } else {
-    print("Number is Equal")
-  }
-}
-
-a <- as.integer(readline(prompt = "Enter value: "))
-numberCalculate(a)
-
-
-
-
-class NumberCheck {
-    numberCalculate(n) {
-        if (n > 0) {
-            console.log("Number is Positive");
-        } else if (n < 0) {
-            console.log("Number is Negative");
+        if (num % 2 == 0) {
+            Console.WriteLine("Input number is even: " + num);
         } else {
-            console.log("Number is Equal");
+            Console.WriteLine("Input number is odd: " + num);
         }
     }
 }
-
-const readline = require("readline").createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
-readline.question("Enter value: ", input => {
-    const a = parseInt(input);
-    const nb = new NumberCheck();
-    nb.numberCalculate(a);
-    readline.close();
-});
-
-
-
-
-
-using System;
-
-class Program {
-    static void Main() {
-        Console.Write("Enter value: ");
-        int a = Convert.ToInt32(Console.ReadLine());
-
-        if (a > 0)
-            Console.WriteLine("Number is Positive");
-        else if (a < 0)
-            Console.WriteLine("Number is Negative");
-        else
-            Console.WriteLine("Number is Equal");
-    }
-}
-
-
-
-
-
-const readline = require("readline").createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
-readline.question("Enter value: ", input => {
-    const n = parseInt(input);
-
-    if (n > 0) {
-        console.log("Number is Positive");
-    } else if (n < 0) {
-        console.log("Number is Negative");
-    } else {
-        console.log("Number is Equal");
-    }
-
-    readline.close();
-});
-
-
-
-
-#include <stdio.h>
-
-void main() {
-    int a;
-    printf("Enter value: ");
-    scanf("%d", &a);
-
-    if (a > 0)
-        printf("Number is Positive\n");
-    else if (a < 0)
-        printf("Number is Negative\n");
-    else
-        printf("Number is Equal\n");
-}
-
-
-
-#include <iostream>
-using namespace std;
-
-void main() {
-    int a;
-    cout << "Enter value: ";
-    cin >> a;
-
-    if (a > 0)
-        cout << "Number is Positive" << endl;
-    else if (a < 0)
-        cout << "Number is Negative" << endl;
-    else
-        cout << "Number is Equal" << endl;
-}
-
-
