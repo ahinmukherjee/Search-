@@ -1,111 +1,221 @@
-import java.util.Scanner;
+import React from 'react';
+import "../Styles/home.css";
+import blackcar from "../images/blackcar.png";
+import boat from "../images/boat.png";
+import butterfly from "../images/butterfly.png";
+import cars from "../images/cars.png";
 
-public class Calculator {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+const Home = () => {
+  return (
+    <div className="body">
 
-        // Input values
-        System.out.print("Enter first number: ");
-        double num1 = scanner.nextDouble();
+      {/* Image Slider Section */}
+      <div className="slider-container">
+        <div className="slider">
+          <div className="slide">
+            <img src={blackcar} alt="Black Car" />
+          </div>
+          <div className="slide">
+            <img src={boat} alt="Boat" />
+          </div>
+          <div className="slide">
+            <img src={butterfly} alt="Butterfly" />
+          </div>
+          <div className="slide">
+            <img src={cars} alt="Cars" />
+          </div>
+        </div>
+      </div>
 
-        System.out.print("Enter second number: ");
-        double num2 = scanner.nextDouble();
+      {/* Product Boxes Section */}
+      <div className="box-body">
 
-        // Choosing an operation
-        System.out.print("Choose operation (+, -, *, /): ");
-        char operator = scanner.next().charAt(0);
+        <div className="box">
+          <div
+            className="box-image"
+            style={{ backgroundImage: "url('https://via.placeholder.com/300x200?text=Watch')" }}
+          ></div>
+          <div className="content">
+            <h2>Smart Watch</h2>
+            <p className="details">Waterproof, GPS, 48-hour battery life.</p>
+            <div className="rating">★ ★ ★ ★ ☆</div>
+            <button className="btn-cart">Add to Cart</button>
+          </div>
+        </div>
 
-        double result;
+        <div className="box">
+          <div
+            className="box-image"
+            style={{ backgroundImage: "url('https://via.placeholder.com/300x200?text=Shoes')" }}
+          ></div>
+          <div className="content">
+            <h2>Running Shoes</h2>
+            <p className="details">Breathable fabric, shock absorption.</p>
+            <div className="rating">★ ★ ★ ★ ★</div>
+            <button className="btn-cart">Add to Cart</button>
+          </div>
+        </div>
 
-        // Switch case for operations
-        switch (operator) {
-            case '+':
-                result = num1 + num2;
-                break;
-            case '-':
-                result = num1 - num2;
-                break;
-            case '*':
-                result = num1 * num2;
-                break;
-            case '/':
-                if (num2 != 0) {
-                    result = num1 / num2;
-                } else {
-                    System.out.println("Error: Division by zero is not allowed.");
-                    return;
-                }
-                break;
-            default:
-                System.out.println("Invalid operator.");
-                return;
-        }
+        <div className="box">
+          <div
+            className="box-image"
+            style={{ backgroundImage: "url('https://via.placeholder.com/300x200?text=Headphone')" }}
+          ></div>
+          <div className="content">
+            <h2>Wireless Headphones</h2>
+            <p className="details">Noise cancelling, 20hr battery, Bluetooth 5.0</p>
+            <div className="rating">★ ★ ★ ★ ☆</div>
+            <button className="btn-cart">Add to Cart</button>
+          </div>
+        </div>
 
-        // Display result
-        System.out.println("Result: " + result);
+        <div className="box">
+          <div
+            className="box-image"
+            style={{ backgroundImage: "url('https://via.placeholder.com/300x200?text=Headphone')" }}
+          ></div>
+          <div className="content">
+            <h2>Gaming Headset</h2>
+            <p className="details">360° sound, mic, RGB lighting.</p>
+            <div className="rating">★ ★ ★ ☆ ☆</div>
+            <button className="btn-cart">Add to Cart</button>
+          </div>
+        </div>
 
-        scanner.close();
-    }
+        <div className="box">
+          <div
+            className="box-image"
+            style={{ backgroundImage: "url('https://via.placeholder.com/300x200?text=Headphone')" }}
+          ></div>
+          <div className="content">
+            <h2>Studio Headphones</h2>
+            <p className="details">High-fidelity audio, over-ear.</p>
+            <div className="rating">★ ★ ★ ★ ★</div>
+            <button className="btn-cart">Add to Cart</button>
+          </div>
+        </div>
+
+        <div className="box">
+          <div
+            className="box-image"
+            style={{ backgroundImage: "url('https://via.placeholder.com/300x200?text=Headphone')" }}
+          ></div>
+          <div className="content">
+            <h2>Foldable Headphones</h2>
+            <p className="details">Portable, wireless, deep bass.</p>
+            <div className="rating">★ ★ ★ ★ ☆</div>
+            <button className="btn-cart">Add to Cart</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+export default Home;
+
+
+
+/* Base body styling */
+.body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  padding: 20px;
 }
 
-
-
-import java.util.Scanner;
-
-class Student {
-    // Instance variables
-    private String name;
-    private int rollNumber;
-    private double marks;
-
-    // Constructor to initialize student details
-    public Student(String name, int rollNumber, double marks) {
-        this.name = name;
-        this.rollNumber = rollNumber;
-        this.marks = marks;
-    }
-
-    // Method to calculate grade
-    public String calculateGrade() {
-        if (marks >= 90) return "A+";
-        else if (marks >= 80) return "A";
-        else if (marks >= 70) return "B";
-        else if (marks >= 60) return "C";
-        else if (marks >= 50) return "D";
-        else return "F";
-    }
-
-    // Method to display student details
-    public void displayDetails() {
-        System.out.println("\n--- Student Details ---");
-        System.out.println("Name: " + name);
-        System.out.println("Roll Number: " + rollNumber);
-        System.out.println("Marks: " + marks);
-        System.out.println("Grade: " + calculateGrade());
-    }
+/* Slider styles */
+.slider-container {
+  overflow: hidden;
+  max-width: 100%;
+  margin-bottom: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-public class StudentManagement {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        // Input student details
-        System.out.print("Enter student name: ");
-        String name = scanner.nextLine();
-
-        System.out.print("Enter roll number: ");
-        int rollNumber = scanner.nextInt();
-
-        System.out.print("Enter marks (out of 100): ");
-        double marks = scanner.nextDouble();
-
-        // Creating student object
-        Student student = new Student(name, rollNumber, marks);
-
-        // Displaying student details
-        student.displayDetails();
-
-        scanner.close();
-    }
+.slider {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
 }
 
+.slide {
+  min-width: 100%;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Product grid layout */
+.box-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+/* Individual product box */
+.box {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.box:hover {
+  transform: translateY(-6px);
+}
+
+.box-image {
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+.content {
+  padding: 16px;
+}
+
+.content h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.details {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.rating {
+  font-size: 1.1rem;
+  color: gold;
+  margin-bottom: 14px;
+}
+
+/* Add to Cart button */
+.btn-cart {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cart:hover {
+  background-color: #0056b3;
+                  }
