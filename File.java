@@ -1,93 +1,60 @@
-//Declare and Initialize an Array
+import React, { useState, useEffect } from 'react';
+import blackcar from './images/blackcar.jpg';
+import boat from './images/boat.jpg';
+import butterfly from './images/butterfly.jpg';
+import cars from './images/cars.jpg';
+import './Slider.css'; // You’ll create this for styles
 
-public class ArrayExample {
-    public static void main(String[] args) {
-        int[] numbers = {10, 20, 30, 40, 50}; 
-        for (int num : numbers) {
-            System.out.print(num + " ");
-        }
-    }
+const ImageSlider = () => {
+  const images = [blackcar, boat, butterfly, cars];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
+    }, 3000); // Slide every 3 seconds
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  return (
+    <div className="slider-container">
+      <div
+        className="slider"
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
+        {images.map((img, index) => (
+          <div className="slide" key={index}>
+            <img src={img} alt={`Slide ${index + 1}`} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ImageSlider;
+
+
+.slider-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
-
-//Largest and Smallest Element in an Array
-
-public class MinMaxArray {
-    public static void main(String[] args) {
-        int[] arr = {12, 34, 5, 67, 89, 1};
-        int min = arr[0], max = arr[0];
-
-        for (int num : arr) {
-            if (num > max) max = num;
-            if (num < min) min = num;
-        }
-
-        System.out.println("Minimum: " + min);
-        System.out.println("Maximum: " + max);
-    }
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 400%; /* 4 slides, adjust accordingly */
 }
 
-//reverse 
-
-public class ReverseArray {
-    public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5};
-        System.out.print("Reversed Array: ");
-        for (int i = arr.length - 1; i >= 0; i--) {
-            System.out.print(arr[i] + " ");
-        }
-    }
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
 }
 
-
-// sum elements 
-
-public class SumArray {
-    public static void main(String[] args) {
-        int[] arr = {10, 20, 30, 40, 50};
-        int sum = 0;
-        for (int num : arr) {
-            sum += num;
-        }
-        System.out.println("Sum: " + sum);
-    }
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-public class FindElement {
-    public static void main(String[] args) {
-        int[] arr = {10, 20, 30, 40, 50};
-        int target = 30;
-        boolean found = false;
-
-        for (int num : arr) {
-            if (num == target) {
-                found = true;
-                break;
-            }
-        }
-        
-        System.out.println("Element " + target + " found: " + found);
-    }
-}
-
-
-class A {
-    // Constructor for multiplication
-    A(int x) {
-        int s = x * x;
-        System.out.println("Multiplication = " + s);
-    }
-
-    // Constructor for sum
-    A(int x, int y) {
-        int s = x + y;
-        System.out.println("Sum = " + s);
-    }
-}
-
-public class ConstructorOverloading {
-    public static void main(String args[]) {
-        new A(3);      // Calls constructor A(int x)
-        new A(3, 2);   // Calls constructor A(int x, int y)
-    }
-}
