@@ -48,4 +48,55 @@ public class TrafficSignelTest {
             sc.close();
         }
     }
+}import java.util.*;
+
+class SignalTest {
+    void red() {
+        System.out.println("Signal is Red.");
+    }
+
+    void yellow() {
+        System.out.println("Signal is Yellow.");
+    }
+
+    void green() {
+        System.out.println("Signal is Green. Ready for your journey.");
+    }
 }
+
+public class TrafficSignelTest {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        SignalTest st = new SignalTest();
+
+        try {
+            System.out.println("Please enter traffic signal color (Red / Yellow / Green) or type Exit to quit:");
+            String input = sc.nextLine().trim().toLowerCase(); // Case-insensitive input
+
+            switch (input) {
+                case "red":
+                    st.red();
+                    break;
+                case "yellow":
+                    st.yellow();
+                    break;
+                case "green":
+                    st.green();
+                    break;
+                case "exit":
+                    System.out.println("Exiting program.");
+                    break;
+                default:
+                    System.out.println("Invalid input. Please enter Red, Yellow, Green or Exit.");
+            }
+
+        } catch (InputMismatchException ime) {
+            System.out.println("Invalid input type: " + ime);
+        } catch (Exception e) {
+            System.out.println("Unexpected error: " + e);
+        } finally {
+            sc.close();
+        }
+    }
+}
+
